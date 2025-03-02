@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 14:20:02 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/02 10:23:43 by mefische         ###   ########.fr       */
+/*   Created: 2025/03/02 11:36:39 by mefische          #+#    #+#             */
+/*   Updated: 2025/03/02 12:34:55 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
 #include <stdio.h>
 */
-int	ft_str_is_alpha(char *str)
+char	*ft_strupcase(char *str)
 {
 	int	i;
 
@@ -21,28 +21,18 @@ int	ft_str_is_alpha(char *str)
 	{
 		if (str[i] >= 'a' && str[i] <= 'z')
 		{
-			i++;
-		}
-		else if (str[i] >= 'A' && str[i] <= 'Z')
-		{
+			str[i] = str[i] - 32;
 			i++;
 		}
 		else
-		{
-			return (0);
-		}
+			i++;
 	}
-	return (1);
+	return (str);
 }
 /*
 int	main(void)
-{ 
-	char	name[] = "assha";
-	char	name2[] = "aaushu75765";
-	char	name3[] = "";
-
-	printf("%d", ft_str_is_alpha(name));
-	printf("%d", ft_str_is_alpha(name2));
-	printf("%d", ft_str_is_alpha(name3));
-	return (0);
+{
+	char	name[] = "huoa hau";
+	
+	printf("%s", ft_strupcase(name));
 }*/
