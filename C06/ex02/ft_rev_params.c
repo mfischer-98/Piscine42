@@ -6,7 +6,7 @@
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 09:40:23 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/06 10:53:22 by mefische         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:22:41 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ int	main(int argc, char **argv)
 {
 	int	i;
 	int	j;
-	int	count;
 
-	count = argc - 1;
 	if (argc > 1)
 	{
-		i = (count);
+		i = argc - 1;
 		while (argv[i] && i != 0)
 		{
 			j = 0;
