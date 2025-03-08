@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 13:41:25 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/06 14:09:43 by mefische         ###   ########.fr       */
+/*   Created: 2025/03/08 16:01:03 by mefische          #+#    #+#             */
+/*   Updated: 2025/03/08 16:24:57 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
 
-int	ft_iteractive_factorial(int nb)
+int	ft_iterative_power(int nb, int power)
 {
-	int	i;
 	int	res;
-	
-	res = 1;
-	i = 1;
-	if (nb < 0)
+	int	temp;	
+
+	temp = 0;
+	res = 0;
+	if (power < 0)
 		return (0);
-	while (i <= nb)
+	if (power == 0)
+		return (1);
+	if (power == 1)
+		return (nb);
+	while (power >= 1)
 	{
-		res = res * i; 
-		i ++;
+		res = nb * nb;
+		power--;
 	}
-	return (res);
+	return res;
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc == 2)
-		printf("%d", ft_iteractive_factorial(atoi(argv[1])));
-	else
-		printf("Write a number");  
+	printf("%d", ft_iterative_power(5,3));
 }
