@@ -3,35 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mefische <mefische@student.42porto.co      +#+  +:+       +#+        */
+/*   By: angavrel <angavrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 09:10:37 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/03 09:18:21 by mefische         ###   ########.fr       */
+/*   Created: 2017/02/26 12:48:30 by angavrel          #+#    #+#             */
+/*   Updated: 2017/07/14 14:50:20 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char	*ft_strcpy(char *dest, char *src)
+char    *ft_strcpy(char *s1, char *s2)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while(src[i] != '\0')
+	while (s2[i])
 	{
-		dest[i] = src[i];
+		s1[i] = s2[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	s1[i] = s2[i];
+	return (s1);
 }
 
-int	main (int arc, char **argv)
-{
-	char	*source;
-	char	*destin;
+// DO NOT SUBMIT ANYTHING BELOW
 
-	source = argv[1];
-	printf("%s\n", source);
-	printf("%s", ft_strcpy(destin, source));
+#include <stdio.h>
+
+int main(void)
+{
+	char str1[] = "Flavio";
+	char str2[] = "Gaucho";
+
+	printf("%s\n", str1);
+	ft_strcpy(str1, str2);
+	printf("%s\n", str1);
+	return (0);
 }

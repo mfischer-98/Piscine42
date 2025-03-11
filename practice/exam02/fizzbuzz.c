@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   fizzbuzz.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 09:10:37 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/03 09:18:21 by mefische         ###   ########.fr       */
+/*   Created: 2025/03/06 16:29:40 by mefische          #+#    #+#             */
+/*   Updated: 2025/03/07 11:34:39 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_putchar(char n)
 {
-	int	i;
-
-	i = 0;
-	while(src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	write(1, &n, 1);
 }
 
-int	main (int arc, char **argv)
+void	ft_putnbr(int c)
 {
-	char	*source;
-	char	*destin;
+	if (c >=10)
+		ft_putnbr(c / 10);
+	ft_putchar((c % 10) + '0');
+}
 
-	source = argv[1];
-	printf("%s\n", source);
-	printf("%s", ft_strcpy(destin, source));
+int	main(void)
+{
+	int	n;
+
+	n = 1;
+	while (n <= 100)
+	{
+		if (n % 3 == 0 && n % 5 == 0)
+			write(1, "fizzbuzz", 8);
+		else if (n % 3 == 0)
+			write(1, "fizz", 4);
+		else if (n % 5 == 0)
+			write(1, "buzz", 4);
+		else
+			ft_putnbr(n);	
+		write(1, "\n", 1);
+		n++;
+	}
 }

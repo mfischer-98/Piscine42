@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_is_numeric.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 09:10:37 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/03 09:18:21 by mefische         ###   ########.fr       */
+/*   Created: 2025/03/06 16:20:59 by mefische          #+#    #+#             */
+/*   Updated: 2025/03/06 16:24:06 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_numeric(char *str)
 {
 	int	i;
 
 	i = 0;
-	while(src[i] != '\0')
+	while (str[i])
 	{
-		dest[i] = src[i];
-		i++;
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			i++;
+		}
+		else
+			return (0);
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (1);
 }
 
-int	main (int arc, char **argv)
+int	main(int argc, char **argv)
 {
-	char	*source;
-	char	*destin;
-
-	source = argv[1];
-	printf("%s\n", source);
-	printf("%s", ft_strcpy(destin, source));
+	printf("%d\n", ft_str_is_numeric(argv[1])); 
 }

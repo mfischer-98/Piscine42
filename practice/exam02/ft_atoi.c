@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 09:10:37 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/03 09:18:21 by mefische         ###   ########.fr       */
+/*   Created: 2025/03/07 11:16:49 by mefische          #+#    #+#             */
+/*   Updated: 2025/03/07 11:49:17 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_atoi(char *str)
 {
-	int	i;
+	int	res;
+	int	neg;
 
-	i = 0;
-	while(src[i] != '\0')
+	res = 0;
+	neg = 1;
+	while (*str == ' ' || *str <= 9 && *str >= 13)
 	{
-		dest[i] = src[i];
-		i++;
+		str++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	while (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			neg = neg * -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str ++;
+	}
+	return (res * neg);
 }
 
-int	main (int arc, char **argv)
+int	main(int argc, char **argv)
 {
-	char	*source;
-	char	*destin;
-
-	source = argv[1];
-	printf("%s\n", source);
-	printf("%s", ft_strcpy(destin, source));
+	if (argc == 2)
+		printf("%d", ft_atoi(argv[1]));
 }

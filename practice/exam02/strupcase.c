@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   strupcase.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 09:10:37 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/03 09:18:21 by mefische         ###   ########.fr       */
+/*   Created: 2025/03/06 16:24:52 by mefische          #+#    #+#             */
+/*   Updated: 2025/03/06 16:29:03 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strupcase(char *str)
 {
 	int	i;
 
 	i = 0;
-	while(src[i] != '\0')
+	while (str[i])
 	{
-		dest[i] = src[i];
-		i++;
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			str[i] = str[i] - 32;
+			i++;
+		}
+		else
+			i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (str);
 }
 
-int	main (int arc, char **argv)
+int	main(int argc, char **argv)
 {
-	char	*source;
-	char	*destin;
-
-	source = argv[1];
-	printf("%s\n", source);
-	printf("%s", ft_strcpy(destin, source));
+	printf("%s", ft_strupcase(argv[1]));
 }

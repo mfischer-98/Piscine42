@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   first_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 09:10:37 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/03 09:18:21 by mefische         ###   ########.fr       */
+/*   Created: 2025/03/07 13:17:26 by mefische          #+#    #+#             */
+/*   Updated: 2025/03/07 13:27:55 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	main(int argc, char **argv)
 {
 	int	i;
 
 	i = 0;
-	while(src[i] != '\0')
+	if (argc == 2)
 	{
-		dest[i] = src[i];
-		i++;
+		while (argv[1][i] != ' ' && argv[1][i] != '\0')
+		{
+			write(1, &argv[1][i], 1);
+			i++;
+		}
 	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-int	main (int arc, char **argv)
-{
-	char	*source;
-	char	*destin;
-
-	source = argv[1];
-	printf("%s\n", source);
-	printf("%s", ft_strcpy(destin, source));
+	else 
+		write(1, "\n", 1);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mefische <mefische@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 09:10:37 by mefische          #+#    #+#             */
-/*   Updated: 2025/03/03 09:18:21 by mefische         ###   ########.fr       */
+/*   Created: 2025/03/06 15:57:49 by mefische          #+#    #+#             */
+/*   Updated: 2025/03/06 16:04:19 by mefische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while(src[i] != '\0')
+	while(src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 
-int	main (int arc, char **argv)
+int	main(int argc, char **argv)
 {
-	char	*source;
-	char	*destin;
-
-	source = argv[1];
-	printf("%s\n", source);
-	printf("%s", ft_strcpy(destin, source));
+	if (argc == 3)
+		printf("%s", ft_strcpy(argv[1], argv[2]));
+	else
+		printf("Please write two strings with a space in between.");
 }
